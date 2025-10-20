@@ -8,6 +8,7 @@ import Formation from './components/Formation'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Cursor from './components/Cursor'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -24,6 +25,7 @@ function App() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
+          <Cursor />
           <Header />
           <Presentation />
           <Projects />
