@@ -64,10 +64,10 @@ const Navbar = () => {
                   <span className="relative z-10 text-heading text-yellow-400">{link.label}</span>
                   <span
                     className="absolute inset-0 rounded-md opacity-0 scale-95
-        group-hover:opacity-100 group-hover:scale-105
+        group-hover:opacity-100 group-hover:scale-110
         group-hover:bg-orange-400
         transition-all duration-200
-        -z-10"
+        -z-10 w-full: w-0 group-hover:w-full"
                   ></span>
                 </a>
               </li>
