@@ -1,5 +1,5 @@
 function Formation() {
-  return <div>Formation</div>
+  return <div></div>
 }
 
 export default Formation

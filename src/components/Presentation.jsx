@@ -1,5 +1,5 @@
 function Presentation() {
-  return <div>Presentation</div>
+  return <div></div>
 }
 
 export default Presentation

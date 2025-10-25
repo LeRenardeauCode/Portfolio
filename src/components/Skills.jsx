@@ -1,5 +1,5 @@
 function Skills() {
-  return <div>Skills</div>
+  return <div></div>
 }
 
 export default Skills

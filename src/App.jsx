@@ -9,6 +9,8 @@ import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Cursor from './components/Cursor'
+import NavBar from './components/NavBar'
+import './App.css'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -26,6 +28,7 @@ function App() {
           transition={{ duration: 1 }}
         >
           <Cursor />
+          <NavBar />
           <Header />
           <Presentation />
           <Projects />
