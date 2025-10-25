@@ -35,17 +35,42 @@ const Header = () => {
               }
             }}
           >
-            <div className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-yellow-400 text-yellow-400 transition-all animate-bounce-slow shadow-lg shadow-yellow-400/50 group-hover:bg-yellow-400 group-hover:text-black group-hover:shadow-md group-hover:shadow-yellow-400/70">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 5V19M12 19L19 12M12 19L5 12"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
+            <span className="relative inline-flex items-center justify-center rounded-full p-1">
+              {/* BG glow néon animé, -z order et "bounce" */}
+              <span
+                className="absolute inset-0 rounded-full pointer-events-none -z-10
+                bg-gradient-to-br from-yellow-300 via-orange-400 to-yellow-500
+                blur-md opacity-80 transition-all animate-bounce-slow"
+              ></span>
+              {/* Border gradient container */}
+              <span
+                className="inline-flex items-center justify-center rounded-full
+                bg-gradient-to-br from-yellow-400 via-orange-400 to-yellow-500 p-1
+                animate-bounce-slow"
+              >
+                {/* Bouton en noir par-dessus */}
+                <span
+                  className="w-12 h-12 flex items-center justify-center rounded-full bg-black
+                transition-all group-hover:bg-yellow-400 group-hover:text-black"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="text-yellow-400 group-hover:text-black"
+                  >
+                    <path
+                      d="M12 5V19M12 19L19 12M12 19L5 12"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
           </button>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import logo from '../images/Logo Assets/logo sans fond (blanc).png'
 
 // Navbar Component
 const Navbar = () => {
@@ -35,7 +36,7 @@ const Navbar = () => {
           {/* Logo à gauche */}
           <a href="#home" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <div className="">
-              <img src="../images/Logo Assets/logo sans fond.png" alt="" />
+              <img src={logo} alt="Logo" className="h-10 w-10 scale-150" />
             </div>
             <span className="text-[16px] font-normal text-gray-200 font-heading">Ewan POIRET</span>
           </a>
@@ -46,17 +47,23 @@ const Navbar = () => {
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
-                  className={`font-heading text-[16px] text-yellow-400 font-normal transition-colors ${
-                    activeLink === link.id
-                      ? 'text-yellow-400'
-                      : 'text-gray-300 hover:text-yellow-400'
-                  }`}
+                  className={`relative text-sm font-medium transition-all duration-200
+        ${activeLink === link.id ? 'text-teal-500 dark:text-teal-300' : 'text-slate-500 dark:text-gray-300'}
+        group px-3 py-1 rounded-md
+    `}
                   onClick={(e) => {
                     e.preventDefault()
                     setActiveLink(link.id)
                   }}
                 >
-                  {link.label}
+                  <span className="relative z-10 text-heading text-yellow-400">{link.label}</span>
+                  <span
+                    className="absolute inset-0 rounded-md opacity-0 scale-95
+        group-hover:opacity-100 group-hover:scale-105
+        group-hover:bg-orange-400
+        transition-all duration-200
+        -z-10"
+                  ></span>
                 </a>
               </li>
             ))}
