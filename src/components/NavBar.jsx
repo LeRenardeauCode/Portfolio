@@ -33,7 +33,10 @@ const Navbar = () => {
           : 'bg-neutral-900/0 border-b-0 shadow-none'
       }`}
     >
-      <div className="mx-auto px-6 py-4 bg-neutral-900/80">
+      <div
+        className="mx-auto px-6 py-4 bg-neutral-900/80 animate-fadeInUp"
+        style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+      >
         <div className="flex justify-between items-center">
           {/* Logo à gauche */}
           <a href="#home" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
