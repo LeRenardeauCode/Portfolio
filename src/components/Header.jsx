@@ -2,12 +2,15 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-16 overflow-hidden">
+    <section
+      id="header"
+      className="relative min-h-screen flex items-center justify-center px-6 pt-32 pb-16 overflow-hidden"
+    >
       {/* Content */}
       <div className="relative z-10 max-w-5xl w-full mx-auto text-center">
         {/* Title */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light leading-tight mb-16 animate-fadeInUp text-white font-heading font-regular">
-          Coder aujourd'hui,{' '}
+          Coder aujourd&apos;hui,{' '}
           <span className="font-heading font-semibold text-yellow-400">sécuriser demain</span>
         </h1>
 
@@ -16,7 +19,7 @@ const Header = () => {
           className="text-lg sm:text-xl text-slate-500 dark:text-gray-300/70 max-w-2xl mx-auto mb-8 leading-relaxed animate-fadeInUp font-body"
           style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
         >
-          Développeur full-stack passionné par la création d'expériences web modernes et la
+          Développeur full-stack passionné par la création d&apos;expériences web modernes et la
           cybersécurité.
         </p>
 
