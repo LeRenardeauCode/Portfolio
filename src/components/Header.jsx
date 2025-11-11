@@ -11,7 +11,7 @@ const Header = () => {
         {/* Title */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light leading-tight mb-16 animate-fadeInUp text-white font-heading font-regular">
           Coder aujourd&apos;hui,{' '}
-          <span className="font-heading font-semibold text-yellow-400">sécuriser demain</span>
+          <span className="font-heading font-semibold text-yellow-300">sécuriser demain</span>
         </h1>
 
         {/* Subtitle */}

@@ -2,10 +2,9 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Loader from './components/Loader'
 import Header from './components/Header'
-import Presentation from './components/Presentation'
 import Projects from './components/Projects'
-import Formation from './components/Formation'
-import Skills from './components/Skills'
+import Formations from './components/Formations'
+import Competences from './components/Competences'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Cursor from './components/Cursor'
@@ -30,10 +29,9 @@ function App() {
           <Cursor />
           <NavBar />
           <Header />
-          <Presentation />
           <Projects />
-          <Formation />
-          <Skills />
+          <Formations />
+          <Competences />
           <Contact />
           <Footer />
         </motion.div>

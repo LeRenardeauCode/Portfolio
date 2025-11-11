@@ -36,7 +36,7 @@ function CursorFollower() {
         width: 30,
         height: 30,
         borderRadius: '50%',
-        backgroundColor: 'rgba(255, 204, 0, 0.8)', // jaune semi transparent
+        backgroundColor: 'rgba(255, 204, 0, 0.33)', // jaune semi transparent
         pointerEvents: 'none', // pour laisser passer les clics
         transform: 'translate3d(0, 0, 0)',
         transition: 'background-color 0.3s ease',

@@ -6,7 +6,7 @@ import logo from '../images/Logo Assets/logo sans fond (blanc).png'
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeLink, setActiveLink] = useState('home')
+  const [activeLink, setActiveLink] = useState('header')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +18,7 @@ const Navbar = () => {
   }, [])
 
   const navLinks = [
-    { id: 'presentation', label: 'Présentation' },
+    { id: 'header', label: 'Accueil' },
     { id: 'projets', label: 'Projets' },
     { id: 'formations', label: 'Formations' },
     { id: 'competences', label: 'Compétences' },
@@ -36,10 +36,15 @@ const Navbar = () => {
       <div
         className="mx-auto px-6 py-4 bg-neutral-900/80 animate-fadeInUp"
         style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+        onClick={() => setActiveLink('header')}
       >
         <div className="flex justify-between items-center">
           {/* Logo à gauche */}
-          <a href="#home" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <a
+            href="#header"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            onClick={() => setActiveLink('header')}
+          >
             <div className="">
               <img src={logo} alt="Logo" className="h-10 w-10 scale-150" />
             </div>
@@ -52,22 +57,24 @@ const Navbar = () => {
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
-                  className={`relative text-sm font-medium transition-all duration-200
-        ${activeLink === link.id ? 'text-teal-500 dark:text-teal-300' : 'text-slate-500 dark:text-gray-300'}
-        group px-3 py-1 rounded-md
-    `}
-                  onClick={(e) => {
-                    e.preventDefault()
+                  className={`relative inline-flex text-sm font-medium transition-all duration-200 px-3 py-1 rounded-md text-yellow-300 dark:text-yellow-300 group border-b-2 ${
+                    activeLink === link.id
+                      ? link.id === 'header'
+                        ? 'border-transparent'
+                        : 'border-yellow-500'
+                      : 'border-transparent'
+                  }`}
+                  onClick={() => {
                     setActiveLink(link.id)
                   }}
                 >
-                  <span className="relative z-10 text-heading text-yellow-400">{link.label}</span>
+                  <span className="relative z-10 transition-transform group-hover:scale-105">
+                    {link.label}
+                  </span>
                   <span
-                    className="absolute inset-0 rounded-md opacity-0 scale-95
-        group-hover:opacity-100 group-hover:scale-110
-        group-hover:bg-orange-400
-        transition-all duration-200
-        -z-10 w-full: w-0 group-hover:w-full"
+                    className="absolute inset-0 rounded-md bg-orange-400 opacity-0 scale-95
+               transition-all duration-200 group-hover:opacity-100 group-hover:scale-105
+               -z-10"
                   ></span>
                 </a>
               </li>
@@ -104,8 +111,7 @@ const Navbar = () => {
                       ? 'text-yellow-400'
                       : 'text-gray-300 hover:text-yellow-400'
                   }`}
-                  onClick={(e) => {
-                    e.preventDefault()
+                  onClick={() => {
                     setActiveLink(link.id)
                     setIsMenuOpen(false)
                   }}
