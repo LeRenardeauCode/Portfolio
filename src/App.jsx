@@ -14,6 +14,13 @@ import './App.css'
 function App() {
   const [loading, setLoading] = useState(true)
 
+  const handleScrollToProjects = () => {
+    const projectsSection = document.querySelector('#projets')
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <>
       <AnimatePresence>{loading && <Loader onFadeOut={() => setLoading(false)} />}</AnimatePresence>
@@ -28,7 +35,7 @@ function App() {
         >
           <Cursor />
           <NavBar />
-          <Header />
+          <Header onScrollToProjects={handleScrollToProjects} />
           <Projects />
           <Formations />
           <Competences />

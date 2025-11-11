@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Header = () => {
+const Header = ({ onScrollToProjects }) => {
   return (
     <section
       id="header"
@@ -23,35 +24,26 @@ const Header = () => {
           cybersécurité.
         </p>
 
-        {/* CTA Buttons */}
+        {/* CTA Button */}
         <div
           className="flex flex-col items-center gap-3 animate-fadeInUp"
           style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
         >
           <button
             className="flex flex-col items-center gap-3 cursor-pointer mx-auto animate-fadeInUp group"
-            style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
-            onClick={() => {
-              const nextSection = document.querySelector('#projets')
-              if (nextSection) {
-                nextSection.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
+            onClick={onScrollToProjects}
           >
             <span className="relative inline-flex items-center justify-center rounded-full p-1">
-              {/* BG glow néon animé, -z order et "bounce" */}
               <span
                 className="absolute inset-0 rounded-full pointer-events-none -z-10
                 bg-gradient-to-br from-yellow-300 via-orange-400 to-yellow-500
                 blur-md opacity-80 transition-all animate-bounce-slow"
               ></span>
-              {/* Border gradient container */}
               <span
                 className="inline-flex items-center justify-center rounded-full
                 bg-gradient-to-br from-yellow-400 via-orange-400 to-yellow-500 p-1
                 animate-bounce-slow"
               >
-                {/* Bouton en noir par-dessus */}
                 <span
                   className="w-12 h-12 flex items-center justify-center rounded-full bg-black
                 transition-all group-hover:bg-yellow-400 group-hover:text-black"
@@ -79,6 +71,10 @@ const Header = () => {
       </div>
     </section>
   )
+}
+
+Header.propTypes = {
+  onScrollToProjects: PropTypes.func.isRequired,
 }
 
 export default Header
