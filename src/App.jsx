@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Cursor from './components/Cursor'
 import NavBar from './components/NavBar'
+import GridBackground from './components/NeonBackground'
 import './App.css'
 
 function App() {
@@ -33,12 +34,13 @@ function App() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
+          <GridBackground />
           <Cursor />
           <NavBar />
           <Header onScrollToProjects={handleScrollToProjects} />
           <Projects />
-          <Formations />
           <Competences />
+          <Formations />
           <Contact />
           <Footer />
         </motion.div>

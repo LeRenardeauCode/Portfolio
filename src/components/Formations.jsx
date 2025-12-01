@@ -30,7 +30,7 @@ const Formations = () => {
   }
 
   return (
-    <section id="formations" ref={ref} className="relative min-h-screen px-6 py-20 scroll-mt-24">
+    <section id="formations" ref={ref} className="relative min-h-screen px-6 py-28 scroll-mt-24">
       <motion.div
         className="relative z-10 max-w-7xl mx-auto"
         variants={containerVariants}

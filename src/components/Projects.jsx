@@ -6,11 +6,12 @@ import yugiohImg from '../images/yugioh card.jpeg'
 import lolImg from '../images/lol card.jpg'
 import motusImg from '../images/motus card.jpg'
 import portfolioImg from '../images/portfolioImg.png'
+import LearningDot from './LearningDot'
 
 const projectsData = [
   {
     id: 1,
-    title: 'Projet Yu-Gi-Oh Full-Stack',
+    title: 'Projet Scolaire - Yu-Gi-Oh Full-Stack',
     description:
       'Application full-stack avec React, Node.js et MySQL pour gérer une base de données de cartes Yu-Gi-Oh.',
     image: yugiohImg,
@@ -25,7 +26,7 @@ const projectsData = [
   },
   {
     id: 3,
-    title: 'Projet LoLAPP Front-End',
+    title: 'Projet Scolaire - LoLAPP Front-End',
     description:
       'Projet Front-End avec récupération de données via URL externes de Data Dragon - API officiel de Riot',
     image: lolImg,
@@ -33,7 +34,7 @@ const projectsData = [
   },
   {
     id: 4,
-    title: 'Projet Jeu MOTUS JS Vanilla',
+    title: 'Projet Scolaire - Jeu MOTUS JS Vanilla',
     description:
       'Premier projet réalisé sur la mise en application du jeu MOTUS avec JavaScript Vanilla et la gestion du DOM.',
     image: motusImg,
@@ -41,10 +42,12 @@ const projectsData = [
   },
   {
     id: 5,
-    title: 'En cours',
-    description: 'Tableau de bord interactif avec graphiques et statistiques en temps réel.',
+    title: 'Site Web Full-stack - Ecole de Pole Dance (En cours)',
+    description:
+      'Premier projet professionnel sur la création du site web Full-Stack de Pole Evolution',
     image: null,
     githubLink: 'https://github.com/ton-username/projet5',
+    inProgress: true,
   },
 ]
 
@@ -85,6 +88,8 @@ const ProjectCard = ({ project }) => {
           >
             {project.title}
           </motion.h3>
+
+          {project.inProgress && <LearningDot label="" />}
 
           <motion.a
             href={project.githubLink}
@@ -143,6 +148,7 @@ ProjectCard.propTypes = {
     description: PropTypes.string.isRequired,
     image: PropTypes.string,
     githubLink: PropTypes.string.isRequired,
+    inProgress: PropTypes.bool,
   }).isRequired,
 }
 
