@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import yugiohImg from '../images/yugioh card.jpeg'
 import lolImg from '../images/lol card.jpg'
 import motusImg from '../images/motus card.jpg'
+import portfolioImg from '../images/portfolioImg.png'
 
 const projectsData = [
   {
@@ -19,7 +20,7 @@ const projectsData = [
     id: 2,
     title: 'Portfolio Personnel',
     description: 'Site portfolio moderne avec React, Tailwind CSS et animations Framer Motion.',
-    image: yugiohImg,
+    image: portfolioImg,
     githubLink: 'https://github.com/LeRenardeauCode/Portfolio',
   },
   {
