@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import logo from '../images/Logo Assets/logo sans fond (blanc).png'
+import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
 
 // Navbar Component
 const Navbar = () => {
@@ -52,34 +53,56 @@ const Navbar = () => {
           </a>
 
           {/* Menu desktop à droite (caché sur mobile) */}
-          <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  className={`relative inline-flex text-sm font-medium transition-all duration-200 px-3 py-1 rounded-md text-yellow-300 dark:text-yellow-300 group border-b-2 ${
-                    activeLink === link.id
-                      ? link.id === 'header'
-                        ? 'border-transparent'
-                        : 'border-yellow-500'
-                      : 'border-transparent'
-                  }`}
-                  onClick={() => {
-                    setActiveLink(link.id)
-                  }}
-                >
-                  <span className="relative z-10 transition-transform group-hover:scale-105">
-                    {link.label}
-                  </span>
-                  <span
-                    className="absolute inset-0 rounded-md bg-orange-400 opacity-0 scale-95
-               transition-all duration-200 group-hover:opacity-100 group-hover:scale-105
-               -z-10"
-                  ></span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="hidden md:flex items-center gap-6">
+            <ul className="flex items-center gap-8">
+              {navLinks.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    className={`relative inline-flex text-sm font-medium transition-all duration-200 px-3 py-1 rounded-md text-yellow-300 group border-b-2 ${
+                      activeLink === link.id
+                        ? link.id === 'header'
+                          ? 'border-transparent'
+                          : 'border-yellow-500'
+                        : 'border-transparent'
+                    }`}
+                    onClick={() => {
+                      setActiveLink(link.id)
+                    }}
+                  >
+                    <span className="relative z-10 transition-transform group-hover:scale-105">
+                      {link.label}
+                    </span>
+                    <span
+                      className="absolute inset-0 rounded-md bg-orange-400 opacity-0 scale-95
+              transition-all duration-200 group-hover:opacity-100 group-hover:scale-105
+              -z-10"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA réseaux */}
+            <div className="flex items-center gap-3 text-yellow-300">
+              <a
+                href="https://www.linkedin.com/in/ton-profil"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-orange-400 transition-colors"
+              >
+                <FaLinkedinIn className="w-5 h-5" />
+              </a>
+              <a
+                href="https://github.com/LeRenardeauCode"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-orange-400 transition-colors"
+              >
+                <FaGithub className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
 
           {/* Hamburger menu (visible sur mobile uniquement) */}
           <button
