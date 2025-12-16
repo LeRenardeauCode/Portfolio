@@ -74,7 +74,7 @@ const CERTIFICATIONS = [
   {
     id: 'initcyber',
     title: 'Initiation Cybersecurite',
-    shortTitle: 'Formations initiatoires à la cybercriminalité',
+    shortTitle: 'Formations initiatrices à la cybercriminalité',
     issuer: 'Plateforme en ligne',
     period: 'Obtenu',
     status: 'done',
