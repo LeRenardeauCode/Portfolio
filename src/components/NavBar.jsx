@@ -86,7 +86,7 @@ const Navbar = () => {
             {/* CTA réseaux */}
             <div className="flex items-center gap-3 text-yellow-300">
               <a
-                href="https://www.linkedin.com/in/ton-profil"
+                href="https://www.linkedin.com/in/ewan-poiret-027b10203/"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-orange-400 transition-colors"

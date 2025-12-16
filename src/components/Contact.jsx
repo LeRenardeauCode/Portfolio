@@ -1,9 +1,13 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { sendContact } from '../services/api'
 
 const Contact = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false, amount: 0.3 })
+
+  const [form, setForm] = useState({ name: '', email: '', message: '', honeypot: '' })
+  const [status, setStatus] = useState({ loading: false, success: null, error: null })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -27,6 +31,24 @@ const Contact = () => {
         ease: 'easeOut',
       },
     },
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus({ loading: true, success: null, error: null })
+
+    try {
+      await sendContact(form)
+      setStatus({ loading: false, success: 'Message envoyé avec succès !', error: null })
+      setForm({ name: '', email: '', message: '', honeypot: '' })
+    } catch (err) {
+      setStatus({ loading: false, success: null, error: err.message || 'Erreur serveur' })
+    }
   }
 
   return (
@@ -71,9 +93,8 @@ const Contact = () => {
                 whileHover={{ scale: 1.02, y: -4, transform: 'rotate(0deg)' }}
                 transition={{ duration: 0.25 }}
               >
-                {/* ta photo perso ici */}
                 <img
-                  src="/assets/IMG_0887.jpeg" // à adapter
+                  src="/assets/IMG_0887.jpeg"
                   alt="Photo de profil"
                   className="w-full h-full object-cover"
                 />
@@ -83,7 +104,17 @@ const Contact = () => {
 
           {/* COLONNE DROITE : formulaire */}
           <div className="w-full max-w-xl mx-auto lg:mx-0">
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleSubmit}>
+              {/* Honeypot caché */}
+              <input
+                type="text"
+                name="honeypot"
+                value={form.honeypot}
+                onChange={handleChange}
+                className="hidden"
+                autoComplete="off"
+              />
+
               {/* Nom */}
               <div className="space-y-1">
                 <label className="flex items-center gap-2 text-sm text-gray-200">
@@ -97,7 +128,11 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={form.name}
+                  onChange={handleChange}
                   className="w-full rounded-md bg-neutral-900/80 border border-gray-600/60 px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-yellow-300 focus:ring-1 focus:ring-yellow-300"
+                  required
                 />
               </div>
 
@@ -114,7 +149,11 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
                   className="w-full rounded-md bg-neutral-900/80 border border-gray-600/60 px-3 py-2 text-sm text-gray-100 focus:outline-none focus:border-yellow-300 focus:ring-1 focus:ring-yellow-300"
+                  required
                 />
               </div>
 
@@ -131,17 +170,26 @@ const Contact = () => {
                 </label>
                 <textarea
                   rows={5}
+                  name="message"
+                  value={form.message}
+                  onChange={handleChange}
                   className="w-full rounded-md bg-neutral-900/80 border border-gray-600/60 px-3 py-2 text-sm text-gray-100 resize-none focus:outline-none focus:border-yellow-300 focus:ring-1 focus:ring-yellow-300"
+                  required
                 />
               </div>
+
+              {/* Statut */}
+              {status.error && <p className="text-sm text-red-400">{status.error}</p>}
+              {status.success && <p className="text-sm text-emerald-300">{status.success}</p>}
 
               {/* Bouton */}
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center px-8 py-2.5 rounded-md bg-yellow-300 text-black font-medium text-sm hover:bg-orange-400 hover:text-black transition-colors duration-200"
+                  disabled={status.loading}
+                  className="inline-flex items-center justify-center px-8 py-2.5 rounded-md bg-yellow-300 text-black font-medium text-sm hover:bg-orange-400 hover:text-black transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Envoyer
+                  {status.loading ? 'Envoi...' : 'Envoyer'}
                 </button>
               </div>
             </form>

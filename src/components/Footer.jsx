@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Icônes sociales cliquables */}
           <div className="flex flex-col items-center gap-3 text-yellow-300">
             <a
-              href="https://www.linkedin.com/in/ton-profil"
+              href="https://www.linkedin.com/in/ewan-poiret-027b10203/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-orange-400 transition-colors"
@@ -52,7 +52,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://www.figma.com/@tonprofil"
+              href="https://www.figma.com/files/team/1547145455175141248/user/1547145450756617382?fuid=1547145450756617382"
               target="_blank"
               rel="noreferrer"
               className="hover:text-orange-400 transition-colors"
