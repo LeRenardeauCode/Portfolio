@@ -20,8 +20,8 @@ const Navbar = () => {
   const navLinks = [
     { id: 'header', label: 'Accueil' },
     { id: 'projets', label: 'Projets' },
-    { id: 'formations', label: 'Formations' },
     { id: 'competences', label: 'Compétences' },
+    { id: 'formations', label: 'Formations' },
     { id: 'contact', label: 'Contact' },
   ]
 
