@@ -6,6 +6,7 @@ import yugiohImg from '../images/yugioh card.jpeg'
 import lolImg from '../images/lol card.jpg'
 import motusImg from '../images/motus card.jpg'
 import portfolioImg from '../images/portfolioImg.png'
+import poleevolutionImg from '../images/pole evolution accueil.png'
 import LearningDot from './LearningDot'
 
 const projectsData = [
@@ -45,7 +46,7 @@ const projectsData = [
     title: 'Site Web Full-stack - Ecole de Pole Dance (En cours)',
     description:
       'Premier projet professionnel sur la création du site web Full-Stack de Pole Evolution',
-    image: null,
+    image: poleevolutionImg,
     githubLink: 'https://github.com/ton-username/projet5',
     inProgress: true,
   },
