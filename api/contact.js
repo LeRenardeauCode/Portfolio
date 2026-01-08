@@ -2,19 +2,22 @@ require('dotenv').config()
 const nodemailer = require('nodemailer')
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Méthode non autorisée' })
-  }
+  console.log('API appelée')
 
-  const { name, email, message, honeypot } = req.body
+  if (req.method !== 'POST') return res.status(405).end()
+
+  const body = req.body
+  console.log('Body reçu :', body)
+
+  const { name, email, message, honeypot } = body
 
   if (honeypot || !name || !email || !message) {
-    return res.status(400).json({ error: 'Champs invalides' })
+    return res.status(400).json({ error: 'Données invalides' })
   }
 
-  const transporter = nodemailer.createTransporter({
+  const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT) || 465,
+    port: 465,
     secure: true,
     auth: {
       user: process.env.SMTP_USER,
@@ -22,32 +25,13 @@ export default async function handler(req, res) {
     },
   })
 
-  const mailOptions = {
-    from: process.env.MAIL_FROM || process.env.CONTACT_TO,
+  await transporter.sendMail({
+    from: process.env.MAIL_FROM || 'test@resend.dev',
     to: process.env.CONTACT_TO,
     replyTo: email,
-    subject: `Nouveau message depuis le portfolio - ${name}`,
-    text: `
-Nom : ${name}
-Email : ${email}
+    subject: `Contact - ${name}`,
+    text: `${name} (${email}) : ${message}`,
+  })
 
-Message :
-${message}
-    `,
-    html: `
-      <h2>Nouveau message depuis le portfolio</h2>
-      <p><strong>Nom :</strong> ${name}</p>
-      <p><strong>Email :</strong> ${email}</p>
-      <p><strong>Message :</strong></p>
-      <p>${message.replace(/\n/g, '<br/>')}</p>
-    `,
-  }
-
-  try {
-    await transporter.sendMail(mailOptions)
-    res.status(200).json({ success: true })
-  } catch (err) {
-    console.error('Erreur /api/contact :', err)
-    res.status(500).json({ error: 'Erreur envoi mail' })
-  }
+  res.status(200).json({ success: true })
 }
