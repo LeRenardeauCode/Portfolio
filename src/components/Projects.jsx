@@ -207,7 +207,7 @@ const Projects = () => {
 
         <motion.div variants={itemVariants} className="text-center">
           <a
-            href="/path-to-your-cv.pdf"
+            href="/CV dev web - Ewan.pdf"
             download
             className="text-2xl font-body inline-block px-8 py-4 bg-neutral-900 hover:bg-orange-400 text-yellow-300 hover:text-black font-bold rounded-md transition-colors duration-300 shadow-lg hover:shadow-xl"
           >
