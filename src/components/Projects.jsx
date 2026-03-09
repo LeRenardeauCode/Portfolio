@@ -6,6 +6,7 @@ import yugiohImg from '../images/yugioh card.jpeg'
 import lolImg from '../images/lol card.jpg'
 import motusImg from '../images/motus card.jpg'
 import portfolioImg from '../images/portfolioImg.png'
+import poleevolutionImg from '../images/pole evolution accueil.png'
 import LearningDot from './LearningDot'
 
 const projectsData = [
@@ -45,7 +46,7 @@ const projectsData = [
     title: 'Site Web Full-stack - Ecole de Pole Dance (En cours)',
     description:
       'Premier projet professionnel sur la création du site web Full-Stack de Pole Evolution',
-    image: null,
+    image: poleevolutionImg,
     githubLink: 'https://github.com/ton-username/projet5',
     inProgress: true,
   },
@@ -206,7 +207,7 @@ const Projects = () => {
 
         <motion.div variants={itemVariants} className="text-center">
           <a
-            href="/path-to-your-cv.pdf"
+            href="/CV dev web - Ewan.pdf"
             download
             className="text-2xl font-body inline-block px-8 py-4 bg-neutral-900 hover:bg-orange-400 text-yellow-300 hover:text-black font-bold rounded-md transition-colors duration-300 shadow-lg hover:shadow-xl"
           >
